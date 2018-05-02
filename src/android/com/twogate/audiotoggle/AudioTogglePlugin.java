@@ -1,4 +1,4 @@
-package com.dooble.audiotoggle;
+package com.twogate.audiotoggle;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
