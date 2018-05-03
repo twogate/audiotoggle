@@ -1,6 +1,6 @@
 ## AudioToggle
 
-Cordova plugin for switching between speaker and earpiece when playing audio.
+Cordova plugin for automatic switching between headphone and earpiece when playing audio.
 
     cordova plugin add com.twogate.audiotoggle
     
@@ -11,14 +11,6 @@ Cordova plugin for switching between speaker and earpiece when playing audio.
 
 ### Usage
 
-To set the current audio mode, use the `setAudioMode` method:
+To set the automatic route mode, use the `setAutoRoute` method:
 
-    AudioToggle.setAudioMode(AudioToggle.SPEAKER);
-    // or
-    AudioToggle.setAudioMode(AudioToggle.EARPIECE);
-
-Android has the following additional options:
-
-    AudioToggle.setAudioMode(AudioToggle.NORMAL);
-    // and
-    AudioToggle.setAudioMode(AudioToggle.RINGTONE);
+    AudioToggle.setAutoRoute();

@@ -9,13 +9,13 @@ import android.content.Context;
 import android.media.AudioManager;
 
 public class AudioTogglePlugin extends CordovaPlugin {
-	public static final String ACTION_SET_AUDIO_MODE = "setAudioMode";
+	public static final String ACTION_SET_AUTO_ROUTE = "setAutoRoute";
 	
 	@Override
 	public boolean execute(String action, JSONArray args, 
 			CallbackContext callbackContext) throws JSONException {	
-		if (action.equals(ACTION_SET_AUDIO_MODE)) {
-			if (!setAudioMode(args.getString(0))) {
+		if (action.equals(ACTION_SET_AUTO_ROUTE)) {
+			if (!setAutoRoute(args.getString(0))) {
 				callbackContext.error("Invalid audio mode");
 				return false;
 			}
@@ -27,7 +27,7 @@ public class AudioTogglePlugin extends CordovaPlugin {
 		return false;
 	}
 	
-	public boolean setAudioMode(String mode) {
+	public boolean setAutoRoute(String mode) {
 	    Context context = webView.getContext();
 	    AudioManager audioManager = 
 	    	(AudioManager) context.getSystemService(Context.AUDIO_SERVICE);

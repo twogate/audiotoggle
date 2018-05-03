@@ -6,7 +6,7 @@
 {
     NSString *mode;
 }
-- (void)setAudioMode:(CDVInvokedUrlCommand *)command
+- (void)setAutoRoute:(CDVInvokedUrlCommand *)command
 {
     mode = [NSString stringWithFormat:@"%@", [command.arguments objectAtIndex:0]];
     
