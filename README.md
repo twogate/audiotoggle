@@ -1,24 +1,16 @@
-## AudioToggle
+# AudioToggle - Audio Routing Plugin for Silent Listening
 
-Cordova plugin for switching between speaker and earpiece when playing audio.
+Cordova plugin for automatic switching between headphone and earpiece when playing audio.
 
-    cordova plugin add com.dooble.audiotoggle
+    cordova plugin add com.twogate.audiotoggle
     
 ### Supported Platforms
 
-- Android
-- iOS
+- Android >= 6
+- iOS >= 9
 
 ### Usage
 
-To set the current audio mode, use the `setAudioMode` method:
+To set the automatic route mode, use the `setAutoRoute` method:
 
-    AudioToggle.setAudioMode(AudioToggle.SPEAKER);
-    // or
-    AudioToggle.setAudioMode(AudioToggle.EARPIECE);
-
-Android has the following additional options:
-
-    AudioToggle.setAudioMode(AudioToggle.NORMAL);
-    // and
-    AudioToggle.setAudioMode(AudioToggle.RINGTONE);
+    AudioToggle.setAutoRoute();
