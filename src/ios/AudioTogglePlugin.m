@@ -13,10 +13,19 @@
     [self configureAVAudioSession];
 }
 
+- (void)onAppTerminate
+{
+    [self unconfigureAVAudioSession];
+}
+
 - (void)configureAVAudioSession {
     [self changeRoute];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSessionRouteChange:) name:AVAudioSessionRouteChangeNotification object:nil];
+}
+
+- (void)unconfigureAVAudioSession {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVAudioSessionRouteChangeNotification object:nil];
 }
 
 - (void)changeRoute {
@@ -28,7 +37,9 @@
         [session setCategory:AVAudioSessionCategoryPlayback error:&error];
         [session overrideOutputAudioPort: AVAudioSessionPortOverrideNone error:&error];
     } else {
-        [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
+        [session setCategory:AVAudioSessionCategoryPlayAndRecord
+                 withOptions:AVAudioSessionCategoryOptionAllowBluetoothA2DP
+                 error:&error];
         [session overrideOutputAudioPort:kAudioSessionProperty_OverrideAudioRoute error:&error];
     }
 }
