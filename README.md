@@ -1,4 +1,4 @@
-## AudioToggle
+# AudioToggle - Audio Routing Plugin for Silent Listening
 
 Cordova plugin for automatic switching between headphone and earpiece when playing audio.
 
@@ -6,8 +6,8 @@ Cordova plugin for automatic switching between headphone and earpiece when playi
     
 ### Supported Platforms
 
-- Android
-- iOS
+- Android >= 6
+- iOS >= 9
 
 ### Usage
 

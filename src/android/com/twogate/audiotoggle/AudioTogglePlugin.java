@@ -11,25 +11,12 @@ import android.media.AudioManager;
 import android.media.AudioDeviceCallback;
 import android.media.AudioDeviceInfo;
 import android.util.Log;
-/*
-interface AudioRouteChangedListener{
-	void onReceiveAction(boolean isNewDevices, AudioDeviceInfo[] devices);
-}*/
 
-public class AudioTogglePlugin extends CordovaPlugin /*implements AudioRouteChangedListener*/ {
-	//private AudioDeviceCallbackReceiver adcReceiver;
+public class AudioTogglePlugin extends CordovaPlugin {
 	private AudioManager audioManager;
 	private static final String TAG = "AudioTogglePlugin";
 	private int oldAudioMode;
-	private int oldRingerMode;
 	private boolean oldIsSpeakerPhoneOn;
-
-	@Override
-	public void onPause(boolean multitasking) {
-		Log.i(TAG, "PAUSE");
-
-		//this.switchToDefault();
-	}
 
 	@Override
 	public void onDestroy() {
@@ -38,17 +25,8 @@ public class AudioTogglePlugin extends CordovaPlugin /*implements AudioRouteChan
 		// 最初のオーディオ状態をリストア
 		audioManager.setSpeakerphoneOn(oldIsSpeakerPhoneOn);
 		audioManager.setMode(oldAudioMode);
-		//audioManager.setRingerMode(oldRingerMode);
 	}
 
-	@Override
-	public void onResume(boolean multitasking) {
-		Log.i(TAG, "RESUME");
-
-		//this.changeRoute();
-	}
-
-	//public void onReceiveAction(boolean isNewDevices, AudioDeviceInfo[] devices) {
 	public void updateDevices(boolean isNewDevices, AudioDeviceInfo[] devices) {
 		if (isNewDevices) {
 			Log.i(TAG, "new devices!");
@@ -122,14 +100,10 @@ public class AudioTogglePlugin extends CordovaPlugin /*implements AudioRouteChan
 	}
 
 	public void setAutoRoute() {
-	//	adcReceiver = new AudioDeviceCallbackReceiver();
-	//	adcReceiver.setListener(this);
-
 		audioManager =
 				(AudioManager) webView.getContext().getSystemService(Context.AUDIO_SERVICE);
 
 		oldAudioMode = audioManager.getMode();
-		//oldRingerMode = audioManager.getRingerMode();
 		oldIsSpeakerPhoneOn = audioManager.isSpeakerphoneOn();
 		Log.i(TAG, oldAudioMode + "/" + oldRingerMode + "/" + oldIsSpeakerPhoneOn);
 
@@ -155,7 +129,4 @@ public class AudioTogglePlugin extends CordovaPlugin /*implements AudioRouteChan
 			}
 		};
 	}
-
-
-
 }
