@@ -105,7 +105,6 @@ public class AudioTogglePlugin extends CordovaPlugin {
 
 		oldAudioMode = audioManager.getMode();
 		oldIsSpeakerPhoneOn = audioManager.isSpeakerphoneOn();
-		Log.i(TAG, oldAudioMode + "/" + oldRingerMode + "/" + oldIsSpeakerPhoneOn);
 
 		AudioDeviceCallback mAudioDeviceCallback = createAudioDeviceCallback();
 
