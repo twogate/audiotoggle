@@ -14,3 +14,7 @@ Cordova plugin for automatic switching between headphone and earpiece when playi
 To set the automatic route mode, use the `setAutoRoute` method:
 
     AudioToggle.setAutoRoute();
+
+### Install
+`cordova plugin add https://github.com/twogate/audiotoggle.git`
+
