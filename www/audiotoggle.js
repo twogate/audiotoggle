@@ -1,9 +1,7 @@
 var exec = require('cordova/exec');
-
-var audiotoggle = {
-	setAutoRoute: function (command) {
-		cordova.exec(null, null, 'AudioTogglePlugin', 'setAutoRoute', [command]);
-	},
+var AudioToggle = {
+    setAutoRoute: function (command) {
+        cordova.exec(null, null, 'AudioTogglePlugin', 'setAutoRoute', [command]);
+    }
 };
-
-module.exports = audiotoggle;
+module.exports = AudioToggle;
