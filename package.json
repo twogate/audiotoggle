@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Cordova plugin for switching between speaker and earpiece when playing audio.",
   "main": "index.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
